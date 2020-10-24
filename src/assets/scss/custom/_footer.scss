@@ -7,18 +7,13 @@
 
 .footer {
     position: fixed;
-    bottom: 0; 
-    min-width: 80%; 
+    bottom: 0;
+    min-width: 80%;
 }
-// Offsets the footer depending on the sidebar positioning
 
-
-            // Left
-            @media only screen and (min-width: 768px){  .footer {
-                margin-left: $navbar-vertical-width;
-            } 
-        }
-           
-
-
-   
+// Left
+@media only screen and (min-width: 768px) {
+    .footer {
+        margin-left: $navbar-vertical-width;
+    }
+}
