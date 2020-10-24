@@ -28,10 +28,6 @@ export default {
       description: 'value to be displayed'
     },
   },
-  data() {
-    return {
-    };
-  },
   methods: {
     doCopy() {
       this.$copyText(this.value).then(
