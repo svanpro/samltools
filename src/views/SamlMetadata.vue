@@ -26,8 +26,7 @@
                 Process XML
               </base-button>
             </div>
-            <copy-box :value="value"/>
-
+            
           </form>
         </b-card-body>
       </b-row>

@@ -30,8 +30,6 @@ export default {
   },
   data() {
     return {
-      inputText: "",
-      outputText: "",
     };
   },
   methods: {
