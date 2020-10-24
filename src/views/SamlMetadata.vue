@@ -4,9 +4,7 @@
       <!-- Card stats -->
       <h4 class="text-light">Extract configuration for various cloud Identities from METADATA</h4>
     </base-header>
-    <b-container 
-      fluid 
-      class="mt--7">
+    <b-container fluid class="mt--7">
       <b-row>
         <b-card-body>
           <form>
@@ -28,6 +26,7 @@
                 Process XML
               </base-button>
             </div>
+            
           </form>
         </b-card-body>
       </b-row>
@@ -43,14 +42,18 @@ import {
   Table,
   TableColumn,
 } from "element-ui";
+import {CopyBox} from '../components/';
 import { parseMetaData } from "../util/SAMLUtil";
 export default {
+  props:{
+  },
   components: {
     [Dropdown.name]: Dropdown,
     [DropdownItem.name]: DropdownItem,
     [DropdownMenu.name]: DropdownMenu,
     [Table.name]: Table,
     [TableColumn.name]: TableColumn,
+    CopyBox,
   },
   data() {
     return {

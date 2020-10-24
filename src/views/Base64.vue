@@ -39,7 +39,7 @@
       </b-row>
       <b-row>
         <b-card-body v-if="outputText">
-          <base-input label="Output text">
+          <!-- <base-input label="Output text">
             <figure class="highlight">
               <code id="outputText" class="form-control">
                 {{ outputText }}
@@ -48,12 +48,12 @@
                   size="sm"
                   outline
                   type="primary"
-                  class="float-right"
-                  >copy
+                  class="float-right">copy
                 </base-button>
               </code>
             </figure>
-          </base-input>
+          </base-input> -->
+          <copy-box :value="outputText"/>
         </b-card-body>
       </b-row>
       <div class="mt-5" />
@@ -61,8 +61,11 @@
   </div>
 </template>
 <script>
+import { CopyBox } from "../components/";
 export default {
-  components: {},
+  components: {
+    CopyBox
+  },
   data() {
     return {
       inputText: "",

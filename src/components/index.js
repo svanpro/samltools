@@ -25,6 +25,7 @@ import LoadingPanel from './LoadingPanel.vue';
 import BasePagination from './BasePagination.vue';
 
 import SidebarPlugin from './SidebarPlugin';
+import CopyBox from './CopyBox.vue';
 
 export {
   BaseCheckbox,
@@ -48,5 +49,6 @@ export {
   BaseButton,
   Collapse,
   CollapseItem,
-  LoadingPanel
+  LoadingPanel,
+  CopyBox
 };
