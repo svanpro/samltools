@@ -1,8 +1,8 @@
 <template>
   <div>
-    <base-header class="mb-6 pb-2 pt-3 pt-md-4 bg-light">
+    <base-header class="mb-6 pb-2 pt-3 pt-md-4 bg-default">
       <!-- Card stats -->
-      <h4>Base64 encoding and decoding</h4>
+      <h4 class="text-light">Base64 encoding and decoding</h4>
     </base-header>
     <b-container fluid class="mt--7">
       <b-row>
