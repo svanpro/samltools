@@ -2,7 +2,9 @@
   <div>
     <base-header class="mb-6 pb-2 pt-3 pt-md-4 bg-default">
       <!-- Card stats -->
-      <h4 class="text-light">Extract configuration for various cloud Identities from METADATA</h4>
+      <h4 class="text-light">
+        Extract configuration for various cloud Identities from METADATA
+      </h4>
     </base-header>
     <b-container fluid class="mt--7">
       <b-row>
@@ -26,11 +28,18 @@
                 Process XML
               </base-button>
             </div>
-            
           </form>
         </b-card-body>
       </b-row>
-      <div class="mt-5" />
+      <b-form-group
+        v-if="samlMetaData.metaType == 'IDP'"
+        id="IDP-Option"
+        description="Okta IDP options"
+      >
+        <CopyBox :value="samlMetaData.IDPOptions.audienceUrl" label="Audience URL" />
+        <CopyBox :value="samlMetaData.IDPOptions.postUrl"   label="Post URL " />
+        <CopyBox :value="samlMetaData.IDPOptions.redirectUrl" label="Redirect URL" />
+      </b-form-group>
     </b-container>
   </div>
 </template>
@@ -42,11 +51,10 @@ import {
   Table,
   TableColumn,
 } from "element-ui";
-import {CopyBox} from '../components/';
+import { CopyBox } from "../components/";
 import { parseMetaData } from "../util/SAMLUtil";
 export default {
-  props:{
-  },
+  props: {},
   components: {
     [Dropdown.name]: Dropdown,
     [DropdownItem.name]: DropdownItem,
@@ -57,12 +65,14 @@ export default {
   },
   data() {
     return {
+      samlMetaData: {},
       samlText: "",
     };
   },
   methods: {
     parseXML(samlText) {
-      console.log(parseMetaData(samlText));
+      this.samlMetaData = parseMetaData(samlText);
+      console.log(this.samlMetaData);
     },
   },
 };
