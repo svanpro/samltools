@@ -2,7 +2,7 @@
   <div>
     <base-header class="mb-6 pb-2 pt-3 pt-md-4 bg-default">
       <!-- Card stats -->
-      <h4>Extract configuration for various cloud Identities from METADATA</h4>
+      <h4 class="text-light">Extract configuration for various cloud Identities from METADATA</h4>
     </base-header>
     <b-container fluid class="mt--7">
       <b-row>
