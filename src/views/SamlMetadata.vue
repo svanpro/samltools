@@ -31,15 +31,31 @@
           </form>
         </b-card-body>
       </b-row>
-      <b-form-group
-        v-if="samlMetaData.metaType == 'IDP'"
-        id="IDP-Option"
-        description="Okta IDP options"
-      >
-        <CopyBox :value="samlMetaData.IDPOptions.audienceUrl" label="Audience URL" />
-        <CopyBox :value="samlMetaData.IDPOptions.postUrl"   label="Post URL " />
-        <CopyBox :value="samlMetaData.IDPOptions.redirectUrl" label="Redirect URL" />
-      </b-form-group>
+      <b-tabs content-class="mt-3" v-if="samlMetaData.metaType == 'IDP'">
+        <b-tab title="Okta" active>
+          <template #title>
+            <b-img width="40" height="40" fluid src="https://www.okta.com/sites/default/files/Okta_Logo_BrightBlue_Medium-thumbnail.png" alt="Okta">Okta</b-img>
+            <b-spinner type="grow" small></b-spinner> Okta</i>
+          </template>
+          <CopyBox
+            :value="samlMetaData.IDPOptions.audienceUrl"
+            label="Audience URL"
+          />
+          <CopyBox :value="samlMetaData.IDPOptions.postUrl" label="Post URL " />
+          <CopyBox
+            :value="samlMetaData.IDPOptions.redirectUrl"
+            label="Redirect URL"
+          />
+          ></b-tab
+        >
+        <b-tab title="Ping ">
+           <template #title>
+            <b-img width="20" height="15" fluid src="https://www.pingidentity.com/content/dam/ping-6-2-assets/topnav-json-configs/Ping-Logo.svg" alt="Okta">Okta</b-img>
+            <b-spinner type="grow" small></b-spinner> Okta</i>
+          </template>
+          <p>⌛Working on it , feel free to contribute..</p>
+        </b-tab>
+      </b-tabs>
     </b-container>
   </div>
 </template>

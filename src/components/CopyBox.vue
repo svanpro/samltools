@@ -1,5 +1,5 @@
 <template>
-  <div>
+  
     <b-row>
       <base-input v-bind="$props" disabled />
       <base-button
@@ -12,7 +12,6 @@
         Copy
       </base-button>
     </b-row>
-  </div>
 </template>
 <script>
 export default {
