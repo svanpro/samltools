@@ -1,5 +1,13 @@
 const xmlParser = require('fast-xml-parser');
 
+// TODO can we have a global exception somewhere in the Project
+class SAMLMetaParseError extends Error {
+    constructor(message) {
+      super(message);
+      this.name = "SAMLMetaParseError";
+    }
+  }
+
 function parseMetaData(samlMetaData) {
     var options = {
         attributeNamePrefix: "attr_",
@@ -14,6 +22,10 @@ function parseMetaData(samlMetaData) {
     const BINDING_HTTP_REDIRECT = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect";
     const DESCRIPTOR_TYPE_SP = "SPSSODescriptor";
     const DESCRIPTOR_TYPE_IDP = "IDPSSODescriptor";
+
+    if(xmlParser.validate(samlMetaData) !== true){
+        throw new SAMLMetaParseError("Error while parsing MetaData xml");
+    }
 
 
     const metaDataObj = xmlParser.parse(samlMetaData, options);

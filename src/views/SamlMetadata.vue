@@ -6,8 +6,21 @@
         Extract configuration for various cloud Identities from METADATA
       </h4>
     </base-header>
+   
     <b-container fluid class="mt--7">
       <b-row>
+        <!-- <base-alert type="danger" v-on="showSamlParseError" dismissible> {{samlParseErrorMessage}} </base-alert> -->
+        <b-alert
+          variant="danger"
+          dismissible
+          fade
+          :show="showSamlParseError"
+          @dismissed="showSamlParseError=false">
+            {{samlParseErrorMessage}}
+        </b-alert> 
+      
+      </b-row>
+      <b-row> 
         <b-card-body>
           <form>
             <base-input label="Paste SAML metadata here">
@@ -51,7 +64,7 @@
         <b-tab title="Ping ">
            <template #title>
             <b-img width="20" height="15" fluid src="https://www.pingidentity.com/content/dam/ping-6-2-assets/topnav-json-configs/Ping-Logo.svg" alt="Okta">Okta</b-img>
-            <b-spinner type="grow" small></b-spinner> Okta</i>
+            <b-spinner type="grow" small></b-spinner> Ping</i>
           </template>
           <p>⌛Working on it , feel free to contribute..</p>
         </b-tab>
@@ -83,12 +96,20 @@ export default {
     return {
       samlMetaData: {},
       samlText: "",
+      showSamlParseError: false,
+      samlParseErrorMessage: "",
     };
+  },
+  errorCaptured(err, components, info) {
+    console.log("Error in component", info);
+    if (err.name == "SAMLMetaParseError") {
+      this.showSamlParseError = true;
+      this.samlParseErrorMessage = err.message;
+    }
   },
   methods: {
     parseXML(samlText) {
       this.samlMetaData = parseMetaData(samlText);
-      console.log(this.samlMetaData);
     },
   },
 };
