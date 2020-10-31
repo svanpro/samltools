@@ -10,7 +10,7 @@
               <i class="ni ni-compass-04"></i> SSO Tools
             </router-link>
 
-            <slot name="mobile-right">
+            <!-- <slot name="mobile-right">
                 <ul class="nav align-items-center d-md-none">
                     <base-dropdown class="nav-item" menu-on-right tag="li" title-tag="a">
                         <a slot="title-container" class="nav-link nav-link-icon" href="#" role="button"
@@ -58,7 +58,7 @@
                         </a>
                     </base-dropdown>
                 </ul>
-            </slot>
+            </slot> -->
             <slot></slot>
             <div v-show="$sidebar.showSidebar" class="navbar-collapse collapse show" id="sidenav-collapse-main">
 

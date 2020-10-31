@@ -5,6 +5,7 @@
       :variant="type"
       :class="[{ 'alert-dismissible': dismissible }]"
       role="alert"
+      
     >
       <slot v-if="!dismissible"></slot>
       <template v-else>
@@ -55,7 +56,7 @@
         type: String,
         default: '',
         description: 'Alert icon to display'
-      }
+      },
     },
     data() {
       return {

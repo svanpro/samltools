@@ -7,4 +7,4 @@
 > npm run serve
 
 ### test cases
- > yarn vue-cli-service test:unit
+ > npm run test:unit

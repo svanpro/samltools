@@ -1,13 +1,10 @@
 <template>
-  <div>
+  
     <b-row>
-      <base-input 
-        v-bind="$props" 
-        disabled="true" 
-        rounded="true"/>
+      <base-input v-bind="$props" disabled />
       <base-button
         size="sm"
-        class="float-right  my-4"
+        class="float-right my-4"
         type="primary"
         outline
         @click="doCopy"
@@ -15,7 +12,6 @@
         Copy
       </base-button>
     </b-row>
-  </div>
 </template>
 <script>
 export default {
@@ -24,17 +20,21 @@ export default {
   props: {
     value: {
       type: String,
-      default: '',
-      description: 'value to be displayed'
+      default: "",
+      description: "value to be displayed",
     },
+     label: {
+        type: String,
+        description: "Input label (text before input)"
+      }
   },
   methods: {
     doCopy() {
       this.$copyText(this.value).then(
-        success =>{
+        (success) => {
           console.log("Copied", success);
         },
-        error =>{
+        (error) => {
           throw new Error(error);
         }
       );
